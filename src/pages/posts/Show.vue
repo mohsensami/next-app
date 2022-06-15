@@ -3,36 +3,49 @@
     <span class="visually-hidden">Loading...</span>
   </div>
 
-  <div v-else class="col-md-12">
-    <div class="card mb-4">
-      <div class="card-header">
-        <h1>{{ post.title }}</h1>
-      </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">
-          Body : {{ post.body }}{{ post.body }}{{ post.body }}{{ post.body }}
-        </li>
-      </ul>
-      <div class="card-footer">
-        <button @click="deletePost" class="btn btn-sm btn-danger me-4">
-          Delete
-        </button>
-        <router-link
-          class="btn btn-sm btn-dark"
-          :to="{ name: 'editPost', params: { id: post.id } }"
-          >Edit</router-link
-        >
-      </div>
-    </div>
+  <div v-else>
+    <div
+      :style="{ backgroundImage: 'url(' + post.cover + ')' }"
+      style="height: 270px; background-size: cover"
+    ></div>
 
-    <div class="card">
-      <div class="card-header">Comments</div>
-      <div class="card-body">
-        <div v-for="comment in comments" :key="comment.id">
-          <div class="card mb-2">
-            <div class="card-header">{{ comment.name }}</div>
-            <div class="card-body">{{ comment.body }}</div>
-            <div class="card-footer">{{ comment.email }}</div>
+    <div class="container mt-4">
+      <div class="card mb-4">
+        <div class="card-header">
+          <h1>{{ post.title }}</h1>
+        </div>
+        <div class="card-body">
+          Body : {{ post.body }}{{ post.body }}{{ post.body }}{{ post.body }}
+          <hr />
+          Create: {{ post.createdAt }}
+        </div>
+        <div class="card-footer d-flex justify-content-xl-between">
+          <div>
+            <button @click="deletePost" class="btn btn-sm btn-danger me-4">
+              Delete
+            </button>
+            <router-link
+              class="btn btn-sm btn-dark"
+              :to="{ name: 'editPost', params: { id: post.id } }"
+              >Edit</router-link
+            >
+          </div>
+          <div>
+            tag:
+            <div class="badge bg-secondary">{{ post.tag }}</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="card-header">Comments</div>
+        <div class="card-body">
+          <div v-for="comment in comments" :key="comment.id">
+            <div class="card mb-2">
+              <div class="card-header">{{ comment.name }}</div>
+              <div class="card-body">{{ comment.body }}</div>
+              <div class="card-footer">{{ comment.email }}</div>
+            </div>
           </div>
         </div>
       </div>
@@ -55,7 +68,7 @@ export default {
 
     function getPost() {
       axios
-        .get(`https://jsonplaceholder.typicode.com/posts/${route.params.id}`)
+        .get(`https://mockend.com/mrmohsensami/api/posts/${route.params.id}`)
         .then(function (response) {
           post.value = response.data;
           loading.value = false;

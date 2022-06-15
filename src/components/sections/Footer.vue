@@ -35,9 +35,9 @@
     <!-- Grid container -->
 
     <!-- Copyright -->
-    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
+    <div class="text-center p-3 bg-dark text-light">
       © 2020 Copyright:
-      <a class="text-dark" href="https://vuejs-weblog.netlify.app/">Demo</a>
+      <a class="text-light" href="https://vuejs-weblog.netlify.app/">Demo</a>
     </div>
     <!-- Copyright -->
   </footer>

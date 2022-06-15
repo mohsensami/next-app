@@ -1,11 +1,11 @@
 <template>
-  <div class="container mt-5">
-    <div class="row g-3">
+  <div class="container">
+    <div class="row">
       <div v-if="loading" class="spinner-border" role="status">
         <span class="visually-hidden">Loading...</span>
       </div>
 
-      <div v-else class="col-md-4" v-for="user in users" :key="user.id">
+      <div v-else class="col-md-4 g-3" v-for="user in users" :key="user.id">
         <UserCardViwe :user="user" />
       </div>
     </div>

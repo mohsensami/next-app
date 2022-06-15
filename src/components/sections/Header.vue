@@ -1,6 +1,6 @@
 <template>
   <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
         <a class="navbar-brand" href="#">Logo</a>
         <button
@@ -40,7 +40,7 @@ export default {
 
 <style>
 .router-link-active {
-  color: rgba(0, 0, 0, 0.9) !important;
-  border-bottom: 2px solid rgba(0, 0, 0, 0.9) !important;
+  color: #fff !important;
+  border-bottom: 2px solid #fff !important;
 }
 </style>
