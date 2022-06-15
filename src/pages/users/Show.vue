@@ -3,8 +3,20 @@
     <span class="visually-hidden">Loading...</span>
   </div>
 
-  <div v-else class="col-md-4">
+  <div v-else class="col-md-12">
     <UserCardViwe :user="user" />
+  </div>
+  <div class="row mt-4">
+    <h1>Albums</h1>
+    <div class="col-md-4" v-for="album in albums" :key="album.id">
+      <div class="">
+        <div class="list-group mb-2">
+          <a class="list-group-item list-group-item-action" href="#">{{
+            album.title
+          }}</a>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -20,6 +32,7 @@ export default {
   },
   setup() {
     const user = ref({});
+    const albums = ref({});
     const loading = ref(true);
     const route = useRoute();
 
@@ -35,9 +48,25 @@ export default {
         });
     }
 
+    function getAlbums() {
+      axios
+        .get(
+          `https://jsonplaceholder.typicode.com/users/${route.params.id}/albums`
+        )
+        .then(function (response) {
+          albums.value = response.data;
+          loading.value = false;
+        })
+        .catch(function (error) {
+          console.log(error);
+        });
+    }
+
     getUser();
 
-    return { user, loading };
+    getAlbums();
+
+    return { user, albums, loading };
   },
 };
 </script>
