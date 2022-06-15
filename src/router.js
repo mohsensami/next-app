@@ -11,6 +11,8 @@ import ShowPost from './pages/posts/Show.vue';
 import CreatePost from './pages/posts/Create.vue';
 import EditPost from './pages/posts/Edit.vue';
 
+import Album from './pages/Album.vue';
+
 const routes = [
     { path: '/', name: 'home', component: Home },
     {
@@ -26,7 +28,8 @@ const routes = [
             { path: 'create', name: 'createPost', component: CreatePost },
             { path: 'edit/:id', name: 'editPost', component: EditPost }
         ]
-    }
+    },
+    { path: '/albums/:id/photos', name: 'album', component: Album },
 ];
 
 const router = createRouter({

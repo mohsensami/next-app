@@ -11,9 +11,12 @@
     <div class="col-md-4" v-for="album in albums" :key="album.id">
       <div class="">
         <div class="list-group mb-2">
-          <a class="list-group-item list-group-item-action" href="#">{{
-            album.title
-          }}</a>
+          <router-link
+            class="list-group-item list-group-item-action"
+            :to="{ name: 'album', params: { id: album.id } }"
+          >
+            {{ album.title }}
+          </router-link>
         </div>
       </div>
     </div>
