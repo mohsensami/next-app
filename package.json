@@ -1,5 +1,6 @@
 {
     "name": "@mohsensami/ui",
+    "private": false,
     "version": "1.0.0",
     "description": "A personalised UI Library.",
     "main": "dist/cjs/index.js",
@@ -8,9 +9,6 @@
     "files": [
         "dist"
     ],
-    "publishConfig": {
-        "registry": "https://npm.pkg.github.com/mohsensami"
-    },
     "jest": {
         "testEnvironment": "jsdom",
         "moduleNameMapper": {
