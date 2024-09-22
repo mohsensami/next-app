@@ -1,3 +1,8 @@
+import { Metadata } from 'next';
+export const metadata: Metadata = {
+    title: 'Blog',
+    description: 'Blog description',
+};
 export default function ProductLayout({
     children,
 }: Readonly<{
