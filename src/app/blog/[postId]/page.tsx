@@ -1,14 +1,11 @@
-
-
 import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
-
-export const generateMetadata = ({ params }: { params: { postId: string } }): Metadata=> {
+export const generateMetadata = ({ params }: { params: { postId: string } }): Metadata => {
     return {
-        title: `مقاله ${params.postId}`
-    }
-}
+        title: `مقاله ${params.postId}`,
+    };
+};
 
 export default async function PostDetails({ params }: { params: { postId: string } }) {
     // const [article, setArticle] = useState<any>();
@@ -28,12 +25,10 @@ export default async function PostDetails({ params }: { params: { postId: string
     }
     return (
         <div>
-
-                <div>
-                    <h1>{post?.title}</h1>
-                    <p>{post?.body}</p>
-                </div>
-
+            <div>
+                <h1>{post?.title}</h1>
+                <p>{post?.body}</p>
+            </div>
         </div>
     );
 }
